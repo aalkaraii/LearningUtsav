@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 17: LocalStorage & SessionStorage</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      input {
+        padding: 5px;
+        margin-right: 10px;
+      }
+      button {
+        padding: 5px 10px;
+      }
+      .output {
+        margin-top: 20px;
+        background-color: #f4f4f4;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>LocalStorage & SessionStorage Example</h1>
+
+    <h3>Save Name in LocalStorage</h3>
+    <input
+      type="text"
+      id="localInput"
+      placeholder="Enter name for LocalStorage"
+    />
+    <button id="saveLocalBtn">Save to LocalStorage</button>
+    <button id="clearLocalBtn">Clear LocalStorage</button>
+    <div class="output" id="localStorageOutput"></div>
+
+    <h3>Save Name in SessionStorage</h3>
+    <input
+      type="text"
+      id="sessionInput"
+      placeholder="Enter name for SessionStorage"
+    />
+    <button id="saveSessionBtn">Save to SessionStorage</button>
+    <button id="clearSessionBtn">Clear SessionStorage</button>
+    <div class="output" id="sessionStorageOutput"></div>
+
+    <script>
+      // LocalStorage example
+      const saveLocalBtn = document.getElementById("saveLocalBtn");
+      const clearLocalBtn = document.getElementById("clearLocalBtn");
+      const localStorageOutput = document.getElementById("localStorageOutput");
+
+      saveLocalBtn.addEventListener("click", () => {
+        const localName = document.getElementById("localInput").value;
+        if (localName) {
+          localStorage.setItem("localName", localName);
+          localStorageOutput.textContent = `Saved Name in LocalStorage: ${localName}`;
+        }
+      });
+
+      clearLocalBtn.addEventListener("click", () => {
+        localStorage.removeItem("localName");
+        localStorageOutput.textContent = "LocalStorage cleared!";
+      });
+
+      // SessionStorage example
+      const saveSessionBtn = document.getElementById("saveSessionBtn");
+      const clearSessionBtn = document.getElementById("clearSessionBtn");
+      const sessionStorageOutput = document.getElementById(
+        "sessionStorageOutput"
+      );
+
+      saveSessionBtn.addEventListener("click", () => {
+        const sessionName = document.getElementById("sessionInput").value;
+        if (sessionName) {
+          sessionStorage.setItem("sessionName", sessionName);
+          sessionStorageOutput.textContent = `Saved Name in SessionStorage: ${sessionName}`;
+        }
+      });
+
+      clearSessionBtn.addEventListener("click", () => {
+        sessionStorage.removeItem("sessionName");
+        sessionStorageOutput.textContent = "SessionStorage cleared!";
+      });
+    </script>
+  </body>
+</html>
