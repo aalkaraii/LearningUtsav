@@ -76,3 +76,16 @@ if (age > 21) {
 } else if (age > 16) {
   console.log("drive ");
 }
+
+getUniqueValues([1, 2, 3, 2, 4, 1, 5]);
+// Output: [1, 2, 3, 4, 5]
+function getUniqueValues(arr) {
+  // Create a new Set from the input array to filter out duplicates
+  const uniqueSet = new Set(arr);
+
+  // Convert the Set back to an array and return it
+  return Array.from(uniqueSet);
+}
+
+// Test the function
+console.log(getUniqueValues([1, 2, 3, 2, 4, 1, 5])); // Output: [1, 2, 3, 4, 5]
